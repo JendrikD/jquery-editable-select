@@ -15,11 +15,9 @@
   // jQuery Editable Select
   EditableSelect = function (select, options) {
     var that = this;
-
     this.options = options;
     this.$select = $(select);
     
-
     if (['focus', 'manual'].indexOf(this.options.trigger) < 0)
       this.options.trigger = 'focus';
     if (['default', 'fade', 'slide'].indexOf(this.options.effects) < 0)
@@ -28,7 +26,7 @@
       this.options.duration = 'fast';
     if (typeof (options.create !== 'boolean'))
       this.options.create = true;
-    if (typeof (options.placeholder !== 'string'))
+    if (!typeof (options.placeholder === 'string'))
       this.options.placeholder = 'Type here...';
 
     this.$input = $('<input type="text" autocomplete="off" placeholder="'+this.options.placeholder+'">');
@@ -45,7 +43,7 @@
     this.utility.initializeInput();
     this.utility.trigger('created');
   };
-  EditableSelect.DEFAULTS = {filter: true, effects: 'default', duration: 'fast', trigger: 'focus'};
+  EditableSelect.DEFAULTS = {filter: true, effects: 'default', duration: 'fast', trigger: 'focus', create: true, placeholder: 'Type here...'};
 
   EditableSelect.prototype.filter = function () {
     var hiddens = 0;
