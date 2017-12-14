@@ -24,7 +24,7 @@
       this.options.effects = 'default';
     if (isNaN(this.options.duration) && ['fast', 'slow'].indexOf(this.options.duration) < 0)
       this.options.duration = 'fast';
-    if (typeof (options.create !== 'boolean'))
+    if (!typeof (options.create === 'boolean'))
       this.options.create = true;
     if (!typeof (options.placeholder === 'string'))
       this.options.placeholder = 'Type here...';
