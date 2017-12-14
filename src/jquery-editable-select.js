@@ -3,7 +3,7 @@
  * 
  * Licensed under MIT (https://github.com/JendrikD/jquery-editable-select/blob/master/LICENSE)
  * 
- * Created by Indri Muska <indrimuska@gmail.com> 2013-2017
+ * Created by Indri Muska <indrimuska@gmail.com> 2013 - Dec. 2017
  * Source on GitHub @ https://github.com/indrimuska/jquery-editable-select
  * 
  * 
@@ -214,10 +214,12 @@
         default:
           if (that.es.options.create) {
             var value = that.es.$input.val();
-            that.es.remove(0);
-            that.es.add('Add ' + value, 0,[{'name': 'value', 'value': value},{'name': 'class', 'value': 'es-add'}]);
+            if($('.es-add').length !== 0)
+              that.es.remove(0);
+            if(value !== '')
+              that.es.add('Add ' + value, 0,[{'name': 'value', 'value': value},{'name': 'class', 'value': 'es-add'}]);
             that.es.filter();
-            that.highlight(0);
+            that.highlight(1);
           } else {
             that.es.filter();
             that.highlight(0);
