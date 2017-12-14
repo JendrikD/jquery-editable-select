@@ -195,13 +195,13 @@
           that.highlight(selectedIndex + 1);
           e.preventDefault();
           break;
+        case 9:  // Tab
         case 13: // Enter
           if (that.es.$list.is(':visible')) {
             that.es.select(that.es.$list.find('li.selected'));
             e.preventDefault();
           }
           break;
-        case 9:  // Tab
         case 27: // Esc
           that.es.hide();
           break;
