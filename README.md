@@ -98,7 +98,8 @@ effects | Enum: `"default"`, `"slide"`, `"fade"` | `"default"` | Easing used for
 duration | Integer or Enum: `"fast"`, `"slow"` | `"fast"` | Duration of the easings (in milliseconds).
 appendTo | String or jQuery element | `select.parent()` | Where to append the dropdown list in the DOM.
 trigger | Enum: `"focus"`, `"manual"` | `"focus"` | How dropdown list is triggered.
-create | Boolean | true | Enables dynamic creation of new options.
+create | Boolean | `true` | Enables dynamic creation of new options.
+placeholder | String | `"Type here"` | Placeholder in input Field.
 
 ```javascript
 $('#editable-select').editableSelect({
