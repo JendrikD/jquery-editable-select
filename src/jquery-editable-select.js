@@ -48,7 +48,6 @@
   EditableSelect.prototype.filter = function () {
     var hiddens = 0;
     var search = this.$input.val().toLowerCase().trim();
-
     this.$list.find('li').addClass('es-visible').show();
     if (this.options.filter) {
       hiddens = this.$list.find('li').filter(function (i, li) {
@@ -135,6 +134,7 @@
 
   EditableSelect.prototype.clearInput = function () {
     this.$input.val('');
+    this.filter();
   };
   EditableSelect.prototype.destroy = function () {
     this.$list.off('mousemove mousedown mouseup');
