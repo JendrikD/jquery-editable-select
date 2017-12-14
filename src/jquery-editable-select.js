@@ -100,7 +100,7 @@
       index = last;
     else
       index = Math.min(Math.max(0, index), last);
-    if (index == 0) {
+    if (index === 0) {
       this.$list.prepend($li);
     } else {
       this.$list.find('li').eq(index - 1).after($li);
@@ -264,14 +264,14 @@
     return this.each(function () {
       var $this = $(this);
       var data = $this.data('editable-select');
-      var options = $.extend({}, EditableSelect.DEFAULTS, $this.data(), typeof option == 'object' && option);
+      var options = $.extend({}, EditableSelect.DEFAULTS, $this.data(), typeof option === 'object' && option);
 
       if (!data)
         data = new EditableSelect(this, options);
-      if (typeof option == 'string')
+      if (typeof option === 'string')
         data[option].apply(data, args);
     });
-  }
+  };
   $.fn.editableSelect = Plugin;
   $.fn.editableSelect.Constructor = EditableSelect;
 
