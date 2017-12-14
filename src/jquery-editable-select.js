@@ -133,6 +133,8 @@
   };
 
   EditableSelect.prototype.clearInput = function () {
+    if($('.es-add').length !== 0)
+     this.remove(0);
     this.$input.val('');
     this.filter();
   };
