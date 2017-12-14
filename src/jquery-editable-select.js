@@ -1,8 +1,14 @@
 /**
  * jQuery Editable Select
- * Indri Muska <indrimuska@gmail.com>
- *
+ * 
+ * Licensed under MIT (https://github.com/JendrikD/jquery-editable-select/blob/master/LICENSE)
+ * 
+ * Created by Indri Muska <indrimuska@gmail.com> 2013-2017
  * Source on GitHub @ https://github.com/indrimuska/jquery-editable-select
+ * 
+ * 
+ * Updated by Jendrik Dathe <jendrik.dathe@gmail.com> Dec. 2017
+ * Source on Github @ https://github.com/JendrikD/jquery-editable-select
  */
 
 +(function ($) {
