@@ -29,7 +29,7 @@
     if (typeof (options.create !== 'boolean'))
       this.options.create = true;
     if (typeof (options.placeholder !== 'string'))
-      this.option.placeholder = 'Type here...';
+      this.options.placeholder = 'Type here...';
 
     this.$input = $('<input type="text" autocomplete="off" placeholder="'+this.options.placeholder+'">');
     this.$list = $('<ul class="es-list">');
@@ -135,6 +135,9 @@
     this.filter();
   };
 
+  EditableSelect.prototype.clearInput = function () {
+    this.$input.val('');
+  };
   EditableSelect.prototype.destroy = function () {
     this.$list.off('mousemove mousedown mouseup');
     this.$input.off('focus blur input keydown');
