@@ -230,10 +230,13 @@
             var value = that.es.$input.val();
             if($('.es-add').length !== 0)
               that.es.remove(0);
-            if(value !== '')
+            if(value !== ''){
               that.es.add('Add ' + value, 0,[{'name': 'value', 'value': value},{'name': 'class', 'value': 'es-add'}]);
+              that.highlight(1);
+            } else {
+              that.highlight(0);
+            }
             that.es.filter();
-            that.highlight(1);
           } else {
             that.es.filter();
             that.highlight(0);
