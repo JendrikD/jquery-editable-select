@@ -17,7 +17,7 @@
     var that = this;
     this.options = options;
     this.$select = $(select);
-
+    
     if (['focus', 'manual'].indexOf(this.options.trigger) < 0)
       this.options.trigger = 'focus';
     if (['default', 'fade', 'slide'].indexOf(this.options.effects) < 0)
@@ -44,7 +44,7 @@
     this.utility.trigger('created');
   };
   EditableSelect.DEFAULTS = {filter: true, effects: 'default', duration: 'fast', trigger: 'focus', create: true, placeholder: 'Type here...'};
-  //filter
+
   EditableSelect.prototype.filter = function () {
     var hiddens = 0;
     var search = this.$input.val().toLowerCase().trim();
@@ -57,7 +57,7 @@
         this.hide();
     }
   };
-  //show
+
   EditableSelect.prototype.show = function () {
     this.$list.css({
       top: this.$input.position().top + this.$input.outerHeight() - 1,
@@ -74,7 +74,7 @@
       this.$list[fn](this.options.duration, $.proxy(this.utility.trigger, this.utility, 'shown'));
     }
   };
-  //hide
+
   EditableSelect.prototype.hide = function () {
     var fns = {default: 'hide', fade: 'fadeOut', slide: 'slideUp'};
     var fn = fns[this.options.effects];
@@ -83,7 +83,7 @@
     this.$input.removeClass('open');
     this.$list[fn](this.options.duration, $.proxy(this.utility.trigger, this.utility, 'hidden'));
   };
-  //select
+
   EditableSelect.prototype.select = function ($li) {
     if (!this.$list.has($li) || !$li.is('li.es-visible:not([disabled])'))
       return;
@@ -98,7 +98,7 @@
       this.utility.trigger('select', $li);
     }
   };
-  //add
+
   EditableSelect.prototype.add = function (text, index, attrs, data) {
     var $li = $('<li>').html(text);
     var last = this.$list.find('li').length;
@@ -115,7 +115,7 @@
     this.utility.setAttributes($li, attrs, data);
     this.filter();
   };
-  //remove
+
   EditableSelect.prototype.remove = function (index) {
     var last = this.$list.find('li').length;
 
@@ -126,19 +126,18 @@
     this.$list.find('li').eq(index).remove();
     this.filter();
   };
-  //clear
+
   EditableSelect.prototype.clear = function () {
     this.$list.find('li').remove();
     this.filter();
   };
-  //clearInput
+
   EditableSelect.prototype.clearInput = function () {
     if($('.es-add').length !== 0)
      this.remove(0);
     this.$input.val('');
     this.filter();
   };
-  //destroy
   EditableSelect.prototype.destroy = function () {
     this.$list.off('mousemove mousedown mouseup');
     this.$input.off('focus blur input keydown');
@@ -189,10 +188,7 @@
       default:
       case 'focus':
         that.es.$input
-                .on('focus', $.proxy(function(){
-                  this.$list.find('li').addClass('es-visible').show();
-                  that.es.show()}, that.es
-                ))
+                .on('focus', $.proxy(that.es.show, that.es))
                 .on("blur", $.proxy(function() {
                   if ($(".es-list:hover").length === 0) {
                     that.es.hide();
