@@ -85,6 +85,7 @@
   };
   //select
   EditableSelect.prototype.select = function ($li) {
+    this.$input.blur();
     if (!this.$list.has($li) || !$li.is('li.es-visible:not([disabled])'))
       return;
     if ($li.hasClass('es-add')){
