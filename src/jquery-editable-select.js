@@ -14,7 +14,6 @@
 +(function ($) {
   // jQuery Editable Select
   EditableSelect = function (select, options) {
-    var that = this;
     this.options = options;
     this.$select = $(select);
 
