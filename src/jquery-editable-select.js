@@ -84,7 +84,6 @@
   };
   //select
   EditableSelect.prototype.select = function ($li) {
-    this.$input.blur();
     if (!this.$list.has($li) || !$li.is('li.es-visible:not([disabled])'))
       return;
     if ($li.hasClass('es-add')){
@@ -196,10 +195,7 @@
                 .on("blur", $.proxy(function() {
                   if ($(".es-list:hover").length === 0) {
                     that.es.hide();
-                  } else {
-                    this.$input.focus();
-                  }
-                }, that.es
+                  }}, that.es
                   ));
         break;
       case 'manual':
