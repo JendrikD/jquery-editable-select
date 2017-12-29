@@ -17,16 +17,6 @@ It scales down to a real select list when javascript is not available.
 
 See demos here: http://indrimuska.github.io/jquery-editable-select/
 
-# Installation
-
-Get jQuery Editable Select from [**npm**](https://www.npmjs.com/), [**bower**](http://bower.io/) or [**git**](https://git-scm.com/):
-
-```
-  npm install jquery-editable-select
-bower install jquery-editable-select
-  git clone   https://github.com/indrimuska/jquery-editable-select.git
-```
-
 Include style and script in your page:
 
 ```html
@@ -193,4 +183,7 @@ jQuery Editable Select includes support for keyboard navigation:
 
 # License
 
-Copyright (c) 2016 Indri Muska. Licensed under the MIT license.
+Copyright (c) 2016 Indri Muska.
+Copyright (c) 2017 Jendrik Dathe.
+
+Licensed under the MIT license.
