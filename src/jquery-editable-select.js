@@ -27,6 +27,8 @@
       this.options.create = true;
     if (!typeof (options.placeholder === 'string'))
       this.options.placeholder = 'Type here...';
+    if (!typeof (options.addText === 'string'))
+      this.options.addText = '%%%';
 
     this.$input = $('<input type="text" autocomplete="off" placeholder="'+this.options.placeholder+'">');
     this.$list = $('<ul class="es-list">');
@@ -42,7 +44,7 @@
     this.utility.initializeInput();
     this.utility.trigger('created');
   };
-  EditableSelect.DEFAULTS = {filter: true, effects: 'default', duration: 'fast', trigger: 'focus', create: true, placeholder: 'Type here...'};
+  EditableSelect.DEFAULTS = {filter: true, effects: 'default', duration: 'fast', trigger: 'focus', create: true, placeholder: 'Type here...', addText: '%%%'};
   //filter
   EditableSelect.prototype.filter = function () {
     var hiddens = 0;
@@ -231,7 +233,13 @@
             if($('.es-add').length !== 0)
               that.es.remove(0);
             if(value !== ''){
-              that.es.add('Add ' + value, 0,[{'name': 'value', 'value': value},{'name': 'class', 'value': 'es-add'}]);
+              that.es.add(
+                      that.es.options.addText.replace('%%%','<b>'+value+'</b>'),
+                      0,
+                      [
+                        {'name': 'value', 'value': value},
+                        {'name': 'class', 'value': 'es-add'}
+                      ]);
               that.highlight(1);
             } else {
               that.highlight(0);
