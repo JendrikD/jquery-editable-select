@@ -100,6 +100,7 @@ appendTo | String or jQuery element | `select.parent()` | Where to append the dr
 trigger | Enum: `"focus"`, `"manual"` | `"focus"` | How dropdown list is triggered.
 create | Boolean | `true` | Enables dynamic creation of new options.
 placeholder | String | `"Type here"` | Placeholder in input Field.
+addText | String | `"%%%"` | Text shown during dynamic creation of new options. %%% will be replaced with the value.
 
 ```javascript
 $('#editable-select').editableSelect({
