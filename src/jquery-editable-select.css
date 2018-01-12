@@ -42,3 +42,8 @@ input.es-input.open {
 .es-list li.es-add{
   color: #666666;
 }
+.es-list li.es-selected {
+  color: #ccc;
+  font-weight: bolder;
+  background-color: #fff;
+}

@@ -86,12 +86,18 @@
   };
   //select
   EditableSelect.prototype.select = function ($li) {
+    var previousvalue = this.$input.val();
     if (!this.$list.has($li) || !$li.is('li.es-visible:not([disabled])'))
       return;
     if ($li.hasClass('es-add')){
       this.add($li.attr('value'));
       this.select(this.$list.find('li').last());
-    } else {
+    } else if($li.hasClass('es-selected')){
+      this.hide();
+      return;
+    } else{
+      this.$list.find('li.es-selected').removeClass('es-selected');
+      $li.addClass('es-selected');
       this.$input.val($li.text());
       if (this.options.filter)
         this.hide();
@@ -136,6 +142,7 @@
   EditableSelect.prototype.clearInput = function () {
     if($('.es-add').length !== 0)
      this.remove(0);
+    this.$list.find('li.es-selected').removeClass('es-selected');
     this.$input.val('');
     this.filter();
   };
