@@ -6,7 +6,6 @@
  * Created by Indri Muska <indrimuska@gmail.com> 2013 - Dec. 2017
  * Source on GitHub @ https://github.com/indrimuska/jquery-editable-select
  * 
- * 
  * Updated by Jendrik Dathe <jendrik.dathe@gmail.com> Dec. 2017
  * Source on Github @ https://github.com/JendrikD/jquery-editable-select
  */
@@ -86,13 +85,12 @@
   };
   //select
   EditableSelect.prototype.select = function ($li) {
-    var previousvalue = this.$input.val();
     if (!this.$list.has($li) || !$li.is('li.es-visible:not([disabled])'))
       return;
-    if ($li.hasClass('es-add')){
+    if ($li.hasClass('es-add')) {
       this.add($li.attr('value'));
       this.select(this.$list.find('li').last());
-    } else if($li.hasClass('es-selected')){
+    } else if($li.hasClass('es-selected')) {
       this.hide();
       return;
     } else{
@@ -176,19 +174,19 @@
   EditableSelectUtility.prototype.initializeList = function () {
     var that = this;
     that.es.$list
-            .on('mousemove', 'li:not([disabled])', function () {
-              that.es.$list.find('.selected').removeClass('selected');
-              $(this).addClass('selected');
-            })
-            .on('mousedown', 'li', function (e) {
-              if ($(this).is('[disabled]'))
-                e.preventDefault();
-              else
-                that.es.select($(this));
-            })
-            .on('mouseup', function () {
-              that.es.$list.find('li.selected').removeClass('selected');
-            });
+      .on('mousemove', 'li:not([disabled])', function () {
+        that.es.$list.find('.selected').removeClass('selected');
+        $(this).addClass('selected');
+      })
+      .on('mousedown', 'li', function (e) {
+        if ($(this).is('[disabled]'))
+          e.preventDefault();
+        else
+          that.es.select($(this));
+      })
+      .on('mouseup', function () {
+        that.es.$list.find('li.selected').removeClass('selected');
+      });
   };
 
   EditableSelectUtility.prototype.initializeInput = function () {
@@ -197,15 +195,15 @@
       default:
       case 'focus':
         that.es.$input
-                .on('focus', $.proxy(function(){
-                  this.$list.find('li').addClass('es-visible').show();
-                  that.es.show()}, that.es
-                ))
-                .on("blur", $.proxy(function() {
-                  if ($(".es-list:hover").length === 0) {
-                    that.es.hide();
-                  }}, that.es
-                  ));
+          .on('focus', $.proxy(function() {
+            this.$list.find('li').addClass('es-visible').show();
+            that.es.show();}, that.es
+          ))
+          .on("blur", $.proxy(function() {
+            if ($(".es-list:hover").length === 0) {
+              that.es.hide();
+            }}, that.es
+          ));
         break;
       case 'manual':
         break;
@@ -239,9 +237,9 @@
             var value = that.es.$input.val();
             if($('.es-add').length !== 0)
               that.es.remove(0);
-            if(value !== ''){
+            if(value !== '') {
               that.es.add(
-                      that.es.options.addText.replace('%%%','<b>'+value+'</b>'),
+                      that.es.options.addText.replace('%%%', '<b>'+value+'</b>'),
                       0,
                       [
                         {'name': 'value', 'value': value},
